@@ -1,0 +1,76 @@
+{
+  "name": "packemon-test",
+  "version": "1.0.0",
+  "main": "./lib/index.js",
+  "license": "MIT",
+  "dependencies": {
+    "packemon": "3.0.1",
+    "typescript": "^4.9.5"
+  },
+  "scripts": {
+    "build": "NODE_ENV=production packemon build --addExports --no-addFiles --declaration --quiet --loadConfigs",
+    "debug": "DEBUG=packemon:* yarn build"
+  },
+  "packemon": [
+    {
+      "format": "esm",
+      "platform": "browser",
+      "inputs": {
+        "index": "src/index.ts",
+        "helpers": "src/helpers/index.ts",
+        "utils": "src/utils/index.ts"
+      }
+    },
+    {
+      "format": "lib",
+      "platform": "node",
+      "inputs": {
+        "index": "src/index.ts",
+        "helpers": "src/helpers/index.ts",
+        "utils": "src/utils/index.ts"
+      }
+    }
+  ],
+  "packageManager": "yarn@3.4.1",
+  "types": "./lib/index.d.ts",
+  "module": "./esm/index.js",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "browser": {
+        "types": "./esm/index.d.ts",
+        "module": "./esm/index.js",
+        "import": "./esm/index.js"
+      },
+      "node": {
+        "types": "./lib/index.d.ts",
+        "default": "./lib/index.js"
+      },
+      "default": "./lib/index.js"
+    },
+    "./helpers": {
+      "browser": {
+        "types": "./esm/helpers.d.ts",
+        "module": "./esm/helpers.js",
+        "import": "./esm/helpers.js"
+      },
+      "node": {
+        "types": "./lib/helpers.d.ts",
+        "default": "./lib/helpers.js"
+      },
+      "default": "./lib/helpers.js"
+    },
+    "./utils": {
+      "browser": {
+        "types": "./esm/utils.d.ts",
+        "module": "./esm/utils.js",
+        "import": "./esm/utils.js"
+      },
+      "node": {
+        "types": "./lib/utils.d.ts",
+        "default": "./lib/utils.js"
+      },
+      "default": "./lib/utils.js"
+    }
+  }
+}

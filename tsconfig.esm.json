@@ -1,0 +1,10 @@
+{
+    "extends": "./tsconfig.buildOptions.json",
+    "compilerOptions": {
+      "outDir": "esm"
+    },
+    "include": [
+      "src"
+    ]
+  }
+  

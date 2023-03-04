@@ -1,0 +1,10 @@
+{
+    "extends": "./tsconfig.buildOptions.json",
+    "compilerOptions": {
+      "outDir": "lib"
+    },
+    "include": [
+      "src"
+    ]
+  }
+  
